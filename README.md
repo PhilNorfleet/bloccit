@@ -1,5 +1,6 @@
 == README
-## Bloccit: a Reddit clone to teach the fundamental of web development with Rails.
+## Norfleet-Bloccit: a Reddit clone to teach the fundamental of web development with Rails.
+## http://norfleet-bloccit.herokuapp.com/
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
