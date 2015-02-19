@@ -1,5 +1,10 @@
 require 'faker'
 
+new_post = Post.create!(
+  title: "unique title",
+  body: "unique body"
+)
+
 50.times do
   Post.create!(
     title: Faker::Lorem.sentence,
