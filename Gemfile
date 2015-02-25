@@ -45,7 +45,7 @@ gem 'figaro', '1.0'
 
 #Use Devise for authentication
 gem 'devise'
-
+gem 'pundit'
 # Use unicorn as the app server
 # gem 'unicorn'
 
