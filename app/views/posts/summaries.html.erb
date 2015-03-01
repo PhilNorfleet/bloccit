@@ -1,0 +1,7 @@
+<h1> Summary </h1>
+
+  <%= @posts.each do |post| %>
+
+    <%= link_to post.title,  summaries_topic_post_path(post.topic_id, post) %>
+
+  <% end %>
