@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  #require 'carrierwave'
   before_action :authenticate_user!
 
   def update
@@ -6,14 +7,14 @@ class UsersController < ApplicationController
       flash[:notice] = "User information updated"
       redirect_to edit_user_registration_path
     else
-      flash[:error] = "Invalid user information"
+      flash[:error] = current_user.errors.full_messages.join('/n')#"Invalid user information"
       redirect_to edit_user_registration_path
     end
   end
-  
+
   private
 
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :avatar, :avatar_cache)
   end
 end
