@@ -46,6 +46,8 @@ gem 'figaro', '1.0'
 
 #Use Devise for authentication
 gem 'devise'
+
+#User pundit for
 gem 'pundit'
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -57,6 +59,13 @@ gem 'pundit'
 #gem 'debugger', group: [:development, :test]
 
 gem 'redcarpet'
+
+#Use fog for cloud services
 gem 'fog'
+
+#Use Carrierwave and mini_magick for image uploading and processing
 gem 'carrierwave'
 gem 'mini_magick'
+
+#Use will_paginate for pagination
+gem 'will_paginate'
