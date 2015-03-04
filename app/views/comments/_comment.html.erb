@@ -1,8 +1,18 @@
 <%= form_for [topic, post, comment] do |f| %>
-
-
-  <%= form_group_tag(comment.errors[:body]) do %>
-    <%= comment.user.name if comment.user %> <%= time_ago_in_words(comment.created_at) + ' ago' if comment.created_at %>
-    <p><%= "  " + comment.body.to_s %></p>
+  <% if comment.user %>
+    <div class="media">
+      <%= link_to '#', class: 'pull-left' do %>
+        <%= image_tag(comment.user.avatar.small.url) if comment.user.avatar? %>
+      <% end %>
+    <div class="media-body">
+     <%= form_group_tag(comment.errors[:body]) do %>
+       <small>
+         <%= comment.user.name %> <%= time_ago_in_words(comment.created_at) + ' ago' if comment.created_at %>
+        | <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+       </small>
+       <p><%= "  " + comment.body.to_s %></p>
+     <% end %>
+     </div>
+    </div>
   <% end %>
 <% end %>
