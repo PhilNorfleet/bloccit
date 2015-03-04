@@ -1,4 +1,4 @@
-<%= form_for [topic, post, comment] do |f| %>
+<%= form_for [post, comment] do |f| %>
   <% if comment.user %>
     <div class="media">
       <%= link_to '#', class: 'pull-left' do %>
@@ -8,7 +8,7 @@
      <%= form_group_tag(comment.errors[:body]) do %>
        <small>
          <%= comment.user.name %> <%= time_ago_in_words(comment.created_at) + ' ago' if comment.created_at %>
-        | <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+        | <%= link_to "Delete", [@post, comment], method: :delete %>
        </small>
        <p><%= "  " + comment.body.to_s %></p>
      <% end %>
