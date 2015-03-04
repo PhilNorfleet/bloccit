@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   get 'about' => 'welcome#about'
-
+  get 'topics' => 'topics#show'
   root to: 'welcome#index'
 end
