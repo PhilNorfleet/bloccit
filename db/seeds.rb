@@ -1,6 +1,6 @@
 require 'faker'
 
-5.times do 
+5.times do
   user = User.new(
     name:   Faker::Name.name,
     email:  Faker::Internet.email,
@@ -31,11 +31,12 @@ posts = Post.all
 
 100.times do
   Comment.create!(
-    #user: users.sample,
+    user: users.sample,
     post: posts.sample,
     body: Faker::Lorem.paragraph
   )
 end
+comments = Comment.all
 
 admin = User.new(
   name:     'Admin User',

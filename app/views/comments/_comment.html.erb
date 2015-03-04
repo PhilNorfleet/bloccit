@@ -1,0 +1,8 @@
+<%= form_for [topic, post, comment] do |f| %>
+
+
+  <%= form_group_tag(comment.errors[:body]) do %>
+    <%= comment.user.name if comment.user %> <%= time_ago_in_words(comment.created_at) + ' ago' if comment.created_at %>
+    <p><%= "  " + comment.body.to_s %></p>
+  <% end %>
+<% end %>
