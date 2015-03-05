@@ -22,8 +22,12 @@ class ApplicationPolicy
     create?
   end
 
+  def can_moderate?
+    user.present? && (record.user == user || user.admin? || user.moderator?)
+  end
+
   def update?
-    user.present? && (record.user == user || user.admin?)
+    can_moderate?
   end
 
   def edit?
@@ -51,4 +55,3 @@ class ApplicationPolicy
     end
   end
 end
-
