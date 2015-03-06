@@ -5,4 +5,10 @@ module ApplicationHelper
     redcarpet = Redcarpet::Markdown.new(renderer, extensions)
     (redcarpet.render markdown).html_safe
   end
+
+  def will_paginate(collection)
+    collection.to_a.each do |item|
+      item.name
+    end
+  end
 end
