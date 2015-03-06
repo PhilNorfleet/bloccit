@@ -68,4 +68,4 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 #Use will_paginate for pagination
-gem 'will_paginate'
+#gem 'will_paginate'
