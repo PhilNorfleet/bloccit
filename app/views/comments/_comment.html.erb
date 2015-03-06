@@ -1,20 +1,20 @@
 <%= form_for [post, comment] do |f| %>
   <% if comment.user %>
-    <div class="media">
+    <%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
       <%= link_to '#', class: 'pull-left' do %>
         <%= image_tag(comment.user.avatar.small.url) if comment.user.avatar? %>
       <% end %>
-    <div class="media-body">
-      <%= form_group_tag(comment.errors[:body]) do %>
-        <small>
-          <%= comment.user.name %> <%= time_ago_in_words(comment.created_at) + ' ago' if comment.created_at %>
-          <% if comment.user.role == 'admin' %>
-            | <%= link_to "Delete", [@post, comment], method: :delete %>
-          <% end %>
-        </small>
-        <p><%= "  " + comment.body.to_s %></p>
-      <% end %>
+      <div class="media-body">
+        <%= form_group_tag(comment.errors[:body]) do %>
+          <small>
+            <%= comment.user.name %> <%= time_ago_in_words(comment.created_at) + ' ago' if comment.created_at %>
+            <% if comment.user.role == 'admin' %>
+              | <%= link_to "Delete", [@post, comment], method: :delete %>
+            <% end %>
+          </small>
+          <p><%= "  " + comment.body.to_s %></p>
+        <% end %>
       </div>
-    </div>
+    <% end %>
   <% end %>
 <% end %>
