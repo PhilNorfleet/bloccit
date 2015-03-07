@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def form_group_tag(errors, &block)
+    if errors.any?
+      content_tag :div, capture(&block), class: 'form-group has-error'
+    else
+      content_tag :div, capture(&block), class: 'form-group'
+    end
+  end
+
   def markdown_to_html(markdown)
     renderer = Redcarpet::Render::HTML.new
     extensions = {fenced_code_blocks: true}
@@ -6,7 +14,22 @@ module ApplicationHelper
     (redcarpet.render markdown).html_safe
   end
 
-  def paginate(collection)
-
+  def up_vote_link_classes(post)
+    if current_user.voted(post) && current_user.voted(post).up_vote?
+      voted = 'voted'
+    else
+      voted = ''
+    end
+    "glyphicon glyphicon-chevron-up #{voted}"
   end
+
+  def down_vote_link_classes(post)
+    if current_user.voted(post) && current_user.voted(post).down_vote?
+      voted = 'voted'
+    else
+      voted = ''
+    end
+    "glyphicon glyphicon-chevron-down #{voted}"
+  end
+
 end

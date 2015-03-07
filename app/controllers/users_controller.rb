@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   #require 'carrierwave'
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
 
   def update
     if current_user.update_attributes(user_params)
@@ -12,9 +12,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    @posts = @user.posts.visible_to(current_user)
+    @comments = @user.comments
+
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :avatar, :avatar_cache, :email_favorites)
+    params.require(:user).permit(:name, :avatar, :email_favorites)
   end
 end
