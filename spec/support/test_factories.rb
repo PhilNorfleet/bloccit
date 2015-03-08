@@ -1,4 +1,13 @@
 module TestFactories
+
+  FactoryGirl.define do
+    factory :user do
+      email 'test@example.com'
+      password 'f4k3p455w0rd'
+
+    end
+  end
+
   def associated_post(options={})
 
     post_options = {
@@ -24,4 +33,13 @@ module TestFactories
 
     user
   end
+
+  def comment_without_email(post, user)
+
+    comment = Comment.new(post: post, user: user, body: "A Comment")
+    allow(comment).to receive(:send_favorite_emails)
+    comment.save
+    comment
+  end
+
 end
