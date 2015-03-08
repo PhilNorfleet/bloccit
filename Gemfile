@@ -10,6 +10,7 @@ group :production do
 end
 
 group :development do
+  gem 'puma'
   gem 'sqlite3'
   gem 'rails-erd'
   gem 'better_errors'
