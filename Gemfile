@@ -64,6 +64,9 @@ gem 'pundit'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use New Relic for performance tracking
+gem 'newrelic_rpm'
+
 # Use debugger
 #gem 'debugger', group: [:development, :test]
 
