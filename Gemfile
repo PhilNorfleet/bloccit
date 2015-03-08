@@ -10,6 +10,7 @@ group :production do
 end
 
 group :development do
+
   gem 'sqlite3'
   gem 'rails-erd'
   gem 'better_errors'
@@ -20,8 +21,14 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
 
+group :development, :production do
+  gem 'puma'
+end
+
 group :test do
   gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 gem 'bootstrap-sass'
@@ -63,6 +70,9 @@ gem 'pundit'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Use New Relic for performance tracking
+gem 'newrelic_rpm'
 
 # Use debugger
 #gem 'debugger', group: [:development, :test]
