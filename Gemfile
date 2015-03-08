@@ -13,6 +13,7 @@ group :development do
   gem 'sqlite3'
   gem 'rails-erd'
   gem 'better_errors'
+  gem 'web-console', '~> 2.0'
 end
 
 group :development, :test do

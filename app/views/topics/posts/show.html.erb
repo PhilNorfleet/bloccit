@@ -35,10 +35,8 @@
     </div>
   <% end %>
   <div class="col-md-8">
-    <% @post.comments.each do |comment| %>
-      <div class="col-md-4">
-        <%= render partial: 'comments/comment', locals: { post: @post, comment: comment} %>
-      </div>
-    <% end %>
+
+    <%= render partial: 'comments/comment', collection: @comments %>
+
   </div>
 </div>
