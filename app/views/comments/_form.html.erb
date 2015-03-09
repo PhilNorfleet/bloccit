@@ -1,5 +1,5 @@
-<%= form_for [post, post.comments.new] do |f| %>
-  <%= form_group_tag(post.comments.new.errors[:body]) do %>
+<%= form_for [@post, @post.comments.build], remote: true do |f| %>
+  <%= form_group_tag(@post.comments.build.errors[:body]) do %>
     <%= f.label 'New Comment' %>
     <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Submit a new comment" %>
   <% end %>
