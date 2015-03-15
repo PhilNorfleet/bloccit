@@ -49,13 +49,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def markdown_title
-    self.title.render_as_markdown
-  end
 
-  def markdown_body
-    self.body.render_as_markdown
-  end
 
 
   private
