@@ -2,8 +2,7 @@ require 'rails_helper'
 
 describe Comment do
 
-  include TestFactories
-
+  
   describe "after_create" do
 
     before do
